@@ -1,2 +1,2 @@
 # DuMo
-## Coming soon!
+Coming soon!
