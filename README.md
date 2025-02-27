@@ -43,7 +43,7 @@ Finally, evaluate the erasure performance:
 LPIPS 
 
 ```
-python lpips_score_artist.py --idx 1 -d0 /path/to/origin_images -d1 /path/to/vangogh_erased_images
+python evaluation/lpips_score_artist.py --idx 1 -d0 /path/to/origin_images -d1 /path/to/vangogh_erased_images
 (--idx 0 for Picasso, 1 for Van Gogh, 2 for Rembrandt, 3 for Andy Warhol, 4 for Caravaggio)
 ```
     
