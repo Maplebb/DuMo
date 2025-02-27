@@ -56,12 +56,12 @@ python lpips_score_artist.py --idx 1 -d0 /path/to/origin_images -d1 /path/to/van
 If you find our work helpful, please leave us a star and cite our paper.
   
   ```
-  @article{gong2024reliable,
-    title={Reliable and Efficient Concept Erasure of Text-to-Image Diffusion Models},
-    author={Gong, Chao and Chen, Kai and Wei, Zhipeng and Chen, Jingjing and Jiang, Yu-Gang},
-    journal={arXiv preprint arXiv:2407.12383},
-    year={2024}
-  }
+@article{han2025dumo,
+  title={DuMo: Dual Encoder Modulation Network for Precise Concept Erasure},
+  author={Han, Feng and Chen, Kai and Gong, Chao and Wei, Zhipeng and Chen, Jingjing and Jiang, Yu-Gang},
+  journal={arXiv preprint arXiv:2501.01125},
+  year={2025}
+}
   ```
 
 ## Acknowledgement
