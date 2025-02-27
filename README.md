@@ -65,4 +65,4 @@ If you find our work helpful, please leave us a star and cite our paper.
   ```
 
 ## Acknowledgement
-Some code is borrowed from [UCE](https://github.com/rohitgandikota/unified-concept-editing).
+Some code is borrowed from [Controlnet](https://github.com/lllyasviel/ControlNet).
