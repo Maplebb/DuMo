@@ -19,24 +19,24 @@ Code to train DuMo is coming soon.
 Code to generate images of I2P (Nudity):
     
 ```
-python erase/generate_image_nudity.py --model_path /path/to/nudity_checkpoint_dir --save_path images/nudity
+python erase/generate_image_nudity.py --model_path /path/to/nudity_checkpoint_dir --save_path images/nudity --sd_path /original_sd1.4
 ```
 Code to generate images of popular artists (Takes "Van Gogh" style erasure as an example):
 
 ```
-python erase/generate_image_artist_time_new_multi_ft.py --model_path /path/to/van_gogh_checkpoint_dir --save_path images/vangogh --artist_idx 0
+python erase/generate_image_artist_time_new_multi_ft.py --model_path /path/to/van_gogh_checkpoint_dir --save_path images/vangogh --artist_idx 0 --sd_path /original_sd1.4
 ```
 Code to generate images of cartoon characters (Single character erasure):
 ```
-python erase/generate_image_cartoon80_multi_ft.py --model_path /path/to/snoopy_checkpoint_dir --save_path images/snoopy
+python erase/generate_image_cartoon80_multi_ft.py --model_path /path/to/snoopy_checkpoint_dir --save_path images/snoopy --sd_path /original_sd1.4
 ```
 Code to generate images of cartoon characters (Two characters erasure):
 ```
-python erase/generate_image_cartoon80_multi_ft_sno_mic.py --model_path1 /path/to/snoopy_checkpoint_dir --model_path2 /path/to/mickey_checkpoint_dir --save_path images/snoopy_mickey
+python erase/generate_image_cartoon80_multi_ft_sno_mic.py --model_path1 /path/to/snoopy_checkpoint_dir --model_path2 /path/to/mickey_checkpoint_dir --save_path images/snoopy_mickey --sd_path /original_sd1.4
 ```
 Code to generate images of cartoon characters (Three characters erasure):
 ```
-python erase/generate_image_cartoon80_multi_ft_sno_mic_spongebob.py --model_path1 /path/to/snoopy_checkpoint_dir --model_path2 /path/to/mickey_checkpoint_dir --model_path3 /path/to/spongebob_checkpoint_dir --save_path images/snoopy_mickey_spongebob
+python erase/generate_image_cartoon80_multi_ft_sno_mic_spongebob.py --model_path1 /path/to/snoopy_checkpoint_dir --model_path2 /path/to/mickey_checkpoint_dir --model_path3 /path/to/spongebob_checkpoint_dir --save_path images/snoopy_mickey_spongebob --sd_path /original_sd1.4
 ```
 Finally, evaluate the erasure performance:
 
