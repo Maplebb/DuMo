@@ -1,11 +1,12 @@
-from transformers import CLIPTextModel, CLIPTokenizer
-from diffusers import AutoencoderKL, UNet2DConditionModel, PNDMScheduler
-from diffusers import LMSDiscreteScheduler
 import os
 import sys
 parent_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+# print(os.path.join(os.path.dirname(__file__), '..'))
 sys.path.insert(0, parent_dir)
 
+from transformers import CLIPTextModel, CLIPTokenizer
+from diffusers import AutoencoderKL, UNet2DConditionModel, PNDMScheduler
+from diffusers import LMSDiscreteScheduler
 from dumo import DuMo
 from src.engine import train_util
 from src.configs import config
@@ -16,12 +17,12 @@ import pandas as pd
 import argparse
 import numpy as np
 
-def generate_images(model_path, prompts_path, save_path, device='cuda:0', guidance_scale = 7.5, image_size=512, ddim_steps=100, num_samples=10, from_case=0, till_case=1000000, base='1.4'):
+def generate_images(sd_path, model_path, prompts_path, save_path, device='cuda:0', guidance_scale = 7.5, image_size=512, ddim_steps=100, num_samples=10, from_case=0, till_case=1000000, base='1.4'):
     
     # 1. Load the autoencoder model which will be used to decode the latents into image space.
     
     if base == '1.4':
-        model_version = "../out_checkpoint/SDv1.4_original"
+        model_version = sd_path
     else:
         print("Base version not supported")
         return 0
@@ -142,7 +143,8 @@ if __name__=='__main__':
                     prog = 'generateImages',
                     description = 'Generate Images using Diffusers Code')
     parser.add_argument('--model_path', help='path of model', type=str, required=True)
-    parser.add_argument('--prompts_path', help='path to csv file with prompts', type=str, default='benchmark/i2p_benchmark.csv')
+    parser.add_argument('--sd_path', help='path of sd1.4', type=str, required=True)
+    parser.add_argument('--prompts_path', help='path to csv file with prompts', type=str, default='erase/benchmark/i2p_benchmark.csv')
     parser.add_argument('--save_path', help='folder where to save images', type=str, default="images")
     parser.add_argument('--device', help='cuda device to run on', type=str, required=False, default='cuda:0')
     parser.add_argument('--base', help='version of stable diffusion to use', type=str, required=False, default='1.4')
@@ -154,6 +156,7 @@ if __name__=='__main__':
     parser.add_argument('--ddim_steps', help='ddim steps of inference used to train', type=int, required=False, default=50)
     args = parser.parse_args()
     
+    sd_path = args.sd_path
     model_path = args.model_path
     prompts_path = args.prompts_path
     save_path = args.save_path
@@ -165,5 +168,5 @@ if __name__=='__main__':
     from_case = args.from_case
     till_case = args.till_case
     base = args.base
-    generate_images(model_path=model_path, prompts_path=prompts_path, save_path=save_path, device=device,
+    generate_images(sd_path=sd_path, model_path=model_path, prompts_path=prompts_path, save_path=save_path, device=device,
                     guidance_scale = guidance_scale, image_size=image_size, ddim_steps=ddim_steps, num_samples=num_samples,from_case=from_case, till_case=till_case, base=base)
